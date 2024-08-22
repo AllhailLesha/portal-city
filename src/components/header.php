@@ -27,11 +27,19 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Аккаунт
+                                <?= isset($_SESSION["user"]) ? $_SESSION["user"]["name"] : "Аккаунт"?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                <? if (!isset($_SESSION["user"])) {?>
                                 <li><a class="dropdown-item" href="login.php">Вход</a></li>
                                 <li><a class="dropdown-item" href="register.php">Регистрация</a></li>
+                                <?} else {?>
+                                <li>
+                                    <form action="./../actions//user/exit.php" method="post">
+                                        <button class="dropdown-item" type="submit">Выход</button>
+                                    </form>
+                                </li>
+                                <?}?>
                             </ul>
                         </li>
                     </ul>

@@ -1,4 +1,4 @@
-
+<?session_start()?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -15,6 +15,7 @@
     <div class="container">
         <div class="row">
             <h2 class="display-6 mb-3">Заявки</h2>
+            <h1><?= $_SESSION['user']["name"] ?? ''?></h1>
         </div>
         <div class="row">
             <div class="card mb-3">
