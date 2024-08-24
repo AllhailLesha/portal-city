@@ -30,10 +30,12 @@ function checkEmail($email, $pdo)
             "email" => $email,
         ]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        validateEmail($GLOBALS['email'], $user['email'] ?? null);
-        validatePassword($GLOBALS['password'], $user["password"] ?? null);
-        $_SESSION["user"] = $user;
-        header("Location: /../../index.php");        
+        validateEmail($GLOBALS['email'], $user['email'] ?? "");
+        validatePassword($GLOBALS['password'], $user["password"] ?? "");
+        if ($user !== false ) {
+            $_SESSION["user"] = $user;
+            header("Location: /../../index.php");
+        }        
     } catch (\PDOException $exception) {
         echo $exception->getMessage();
     }
@@ -42,25 +44,38 @@ function checkEmail($email, $pdo)
 
 function validatePassword($password, $passwordFromBd)
 {
-    if (!password_verify($password, $passwordFromBd))
+
+    if (empty($password)) {
+        $GLOBALS['fields']['password']['error'] = true;
+        $GLOBALS['fields']['password']['message'] = "Неправильный пароль";
+        $GLOBALS['error'] = true;
+        $_SESSION["fields"] = $GLOBALS['fields'];
+        header("Location: /../../login.php");
+    } else if (!password_verify($password, $passwordFromBd))
     {
         $GLOBALS['fields']['password']['error'] = true;
         $GLOBALS['fields']['password']['message'] = "Неправильный пароль";
         $GLOBALS['error'] = true;
         $_SESSION["fields"] = $GLOBALS['fields'];
-        header("Location: /../../login.php");        
+        header("Location: /../../login.php");
     }
 }
 
 function validateEmail($email, $emailFromBd)
 {
-    if ($email !== $emailFromBd)
+    if (empty($email)) {
+        $GLOBALS['fields']['email']['error'] = true;
+        $GLOBALS['fields']['email']['message'] = "Пользователя с такой почтой не существует";
+        $_SESSION["fields"] = $GLOBALS['fields'];
+        $GLOBALS['error'] = true;
+        header("Location: /../../login.php");
+    } else if ($email !== $emailFromBd)        
     {
         $GLOBALS['fields']['email']['error'] = true;
         $GLOBALS['fields']['email']['message'] = "Пользователя с такой почтой не существует";
         $_SESSION["fields"] = $GLOBALS['fields'];
         $GLOBALS['error'] = true;
-        header("Location: /../../login.php");  
+        header("Location: /../../login.php");
     }
 }
 

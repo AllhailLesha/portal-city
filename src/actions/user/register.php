@@ -131,7 +131,7 @@ if ($error === true)
     addUser($email, $name, $dob, $password, $pdo);
     header("Location: /../../login.php");
 }
-
+    
 
 
 
