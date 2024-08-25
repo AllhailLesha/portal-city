@@ -18,7 +18,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="add-ticket.php">Добавить</a></li>
-                            <li><a class="dropdown-item" href="my-tickets.php">Мои заявки <span class="badge bg-secondary">4</span></a></li>
+                            <li><a class="dropdown-item" href="my-tickets.php">Мои заявки <span class="badge bg-secondary"><?= $_SESSION["ticketsCount"]?></span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

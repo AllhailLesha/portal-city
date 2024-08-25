@@ -70,7 +70,7 @@ function validateError(bool $error, array $fieldsTickets): bool
         $_SESSION["fieldsTickets"] = $fieldsTickets;
         header("Location: /../../add-ticket.php");
         return false;
-    } else {
+    } else {    
         return true;
     }
 }
@@ -106,6 +106,7 @@ if (validateError($error, $fieldsTickets))
 
             move_uploaded_file($image["tmp_name"], $fullPath);
         }
+        $_SESSION["ticketsCount"] = $_SESSION["ticketsCount"] + 1;
         header("Location: /../../my-tickets.php");
     } catch (\PDOException $th) {
         echo $th->getMessage();

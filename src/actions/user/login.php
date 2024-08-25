@@ -34,6 +34,7 @@ function checkEmail($email, $pdo)
         validatePassword($GLOBALS['password'], $user["password"] ?? "");
         if ($user !== false ) {
             $_SESSION["user"] = $user;
+            getTicketsCount();
             header("Location: /../../index.php");
         }        
     } catch (\PDOException $exception) {
@@ -79,4 +80,17 @@ function validateEmail($email, $emailFromBd)
     }
 }
 
+function getTicketsCount() {
+    $ticketsSql = "SELECT `id`, `user_id` FROM `tickets` WHERE user_id = :sessionUserId";
+    $ticketsStmt = $GLOBALS["pdo"]->prepare($ticketsSql);
+    try {
+        $ticketsStmt->execute([
+            "sessionUserId" => $_SESSION["user"]["id"],
+        ]);
+        $ticketsCount = count($ticketsStmt->fetchAll(PDO::FETCH_ASSOC));
+        $_SESSION["ticketsCount"] = $ticketsCount;
+    } catch (\PDOException $exceptionTickets) {
+        echo $exceptionTickets->getMessage();
+    }
+}
 checkEmail($email, $pdo);

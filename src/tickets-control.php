@@ -1,3 +1,5 @@
+<?session_start();
+?>
 <!doctype html>
 <html lang="ru">
 <head>
