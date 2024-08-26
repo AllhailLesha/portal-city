@@ -57,7 +57,7 @@ require_once __DIR__ . "/requires.php";
                 <div class="mb-3">
                     <label for="dobField" class="form-label">Описание</label>
                     <textarea 
-                        value="<?= $fieldsTickets['desc']['value'] ?? '' ?>"
+                        value="<?= $fieldsTickets['desc']['value'] ?? ' ' ?>"
                         class="form-control <?= $fieldsTickets['desc']['error'] ? 'is-invalid' : '' ?>" 
                         id="dobField" 
                         name="desc">
