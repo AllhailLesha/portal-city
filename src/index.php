@@ -18,20 +18,27 @@
         </div>
         <? require_once __DIR__ . "/components/tickets.php"?>
         <div class="row">
-            <? foreach ($tickets as $ticket) { 
-                foreach ($ticketTags as $ticketTag) {
-                    if ($ticket["tickets_tag_id"] === $ticketTag["id"]) {?>
-                        <div class="card mb-3">
-                            <img src="public/images/<?= $ticket['image']?>.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $ticket["title"]?> <span class="badge" style="background-color: <?= $ticketTag['background']?>; color: <?= $ticketTag['color']?>"><?= $ticketTag["name"]?></span> </h5>
-                                <p class="card-text"><?= $ticket['description']?></p>
-                                <p class="card-text"><small class="text-muted"><?= $ticket['created_at']?></small></p>   
-                            </div>
-                        </div>
-                    <?}
-                    }
-                }?> 
+            <? 
+            if (empty($tickets)) { ?>
+                <div class="alert alert-warning" role="alert">
+                    Ничего не найдено
+                </div>
+            <?} else {
+                    foreach ($tickets as $ticket) { 
+                        foreach ($ticketTags as $ticketTag) {
+                            if ($ticket["tickets_tag_id"] === $ticketTag["id"]) {?>
+                                <div class="card mb-3">
+                                    <img src="public/images/<?= $ticket['image']?>.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $ticket["title"]?> <span class="badge" style="background-color: <?= $ticketTag['background']?>; color: <?= $ticketTag['color']?>"><?= $ticketTag["name"]?></span> </h5>
+                                        <p class="card-text"><?= $ticket['description']?></p>
+                                        <p class="card-text"><small class="text-muted"><?= $ticket['created_at']?></small></p>   
+                                    </div>
+                                </div>
+                            <?}
+                            }
+                        } 
+                 }?>
         </div>
     </div>
 </section>
