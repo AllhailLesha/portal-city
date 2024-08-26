@@ -71,7 +71,7 @@ session_start();
                         <td><?= $ticket["title"]?></td>
                         <td><?= $ticket["description"] ?></td>
                         <td>
-                            <span class="badge rounded-pill" style="background-color: <?= $ticketTag['background']?>; color: <?= $ticketTag['color']?>"><?= $ticketTag["name"]?></span>
+                            <span class="badge rounded-pill" style="background-color: <?= $tempTicketTag['background']?>; color: <?= $tempTicketTag['color']?>"><?= $tempTicketTag["name"]?></span>
                         </td>
                         <td>
                             <div class="dropdown">
