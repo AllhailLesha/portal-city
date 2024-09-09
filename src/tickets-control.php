@@ -1,151 +1,102 @@
+<?session_start();
+?>
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-s          cale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php require_once __DIR__ ."/components/head.php" ?>
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/styles/app.css">
 </head>
 <body>
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">WayUp City</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Заявки</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Мои заявки
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="add-ticket.php">Добавить</a></li>
-                            <li><a class="dropdown-item" href="my-tickets.php">Мои заявки <span class="badge bg-secondary">4</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="tickets-control.html" class="nav-link">Управление заявками</a>
-                    </li>
-                </ul>
-                <div class="right-side d-flex">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Аккаунт
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                                <li><a class="dropdown-item" href="login.php">Вход</a></li>
-                                <li><a class="dropdown-item" href="register.php">Регистрация</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Поиск заявок" aria-label="Поиск заявок">
-                        <button class="btn btn-outline-success" type="submit">Поиск</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php require_once __DIR__ . "/components/header.php";
+    require_once __DIR__ . "/requires.php";
+?>
 <section class="main">
     <div class="container">
         <div class="row">
             <h2 class="display-6 mb-3">Управление заявками</h2>
         </div>
-        <div class="row">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Изображение</th>
-                    <th scope="col">Название</th>
-                    <th scope="col">Описание</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Действия</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img src="public/images/image-1.jpg" width="200" alt="">
-                    </td>
-                    <td>Убрать мусор</td>
-                    <td>В нашем районе стали складировать много мусора, никто не убирает..</td>
-                    <td>
-                        <span class="badge rounded-pill bg-success">Выполнено</span>
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Действия
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Выполнено</a></li>
-                                <li><a class="dropdown-item" href="#">В процессе</a></li>
-                                <li><a class="dropdown-item" href="#">Отклонить</a></li>
-                                <li><a class="dropdown-item" href="#">Удалить</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="public/images/image-2.jpg" width="200" alt="">
-                    </td>
-                    <td>Отремонтировать асфальт</td>
-                    <td>Возле дороги на улице Ейдемана рядом с Политическим колледжем образовалась опасная яма.</td>
-                    <td>
-                        <span class="badge rounded-pill bg-warning">В процессе</span>
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Действия
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Выполнено</a></li>
-                                <li><a class="dropdown-item" href="#">В процессе</a></li>
-                                <li><a class="dropdown-item" href="#">Отклонить</a></li>
-                                <li><a class="dropdown-item" href="#">Удалить</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="public/images/image-3.jpg" width="200" alt="">
-                    </td>
-                    <td>Замело снегом</td>
-                    <td>Весь двор в ЖК Пушкинский замело снегом, выезд и въезд затруднены</td>
-                    <td>
-                        <span class="badge rounded-pill bg-info">Создано</span>
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Действия
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Выполнено</a></li>
-                                <li><a class="dropdown-item" href="#">В процессе</a></li>
-                                <li><a class="dropdown-item" href="#">Отклонить</a></li>
-                                <li><a class="dropdown-item" href="#">Удалить</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <? 
+            require_once __DIR__ . "/components/tickets.php"; 
+            if (isset($_SESSION["user"]) && (int)$_SESSION["user"]["user_group_id"] === 1) {?>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Изображение</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Описание</th>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <? foreach ($tickets as $ticket) {
+                            foreach ($ticketTags as $ticketTag) {
+                                if ($ticket["tickets_tag_id"] === $ticketTag["id"]) { ?>
+                                    <tr>
+                                        <td>
+                                            <img src="public/images/<?= $ticket["image"]?>.jpg" width="200" height="100" alt="">
+                                        </td>
+                                        <td><?= $ticket["title"]?></td>
+                                        <td><?= $ticket["description"]?></td>
+                                        <td>
+                                            <span class="badge" style="background-color: <?= $ticketTag['background']?>; color: <?= $ticketTag['color']?>"><?= $ticketTag["name"]?></span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Действия
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li>
+                                                        <form action="./actions/tickets/change-tag.php" method="post">
+                                                            <input class="visually-hidden" value="<?= $ticket['id']?>" name="id">
+                                                            <input class="visually-hidden" value="1" name="changeMethod">   
+                                                            <button class="dropdown-item" type="submit">Выполнено</button>
+                                                        </form>
+                                                    </li>
+                                                    <li>
+                                                        <form action="./actions/tickets/change-tag.php" method="post">
+                                                            <input class="visually-hidden" value="<?= $ticket['id']?>" name="id">
+                                                            <input class="visually-hidden" value="2" name="changeMethod">
+                                                            <button class="dropdown-item" type="submit">В процессе</button>
+                                                        </form>    
+                                                    </li>
+                                                    <li>
+                                                        <form action="./actions/tickets/change-tag.php" method="post">
+                                                            <input class="visually-hidden" value="<?= $ticket['id']?>" name="id">
+                                                            <input class="visually-hidden" value="3" name="changeMethod">
+                                                            <button class="dropdown-item" type="submit">Создано</button>
+                                                        </form>    
+                                                    </li>
+                                                    <li>
+                                                        <form action="./actions/tickets/change-tag.php" method="post">
+                                                            <input class="visually-hidden" value="<?= $ticket['id']?>" name="id">
+                                                            <input class="visually-hidden" value="4" name="changeMethod"> 
+                                                            <button class="dropdown-item" type="submit">Отклонить</button>
+                                                        </form>    
+                                                    </li>
+                                                    <li>
+                                                        <form action="./actions/tickets/change-tag.php" method="post">
+                                                            <input class="visually-hidden" value="<?= $ticket['id']?>" name="id">
+                                                            <input class="visually-hidden" value="5" name="changeMethod"> 
+                                                            <button class="dropdown-item" type="submit">Удалить</button>
+                                                        </form>    
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?}
+                            }
+                        }?>
+                        </tbody>
+                    </table>
+                </div>
+            <?}
+        ?>
     </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+<?php require_once __DIR__ . "/components/scripts.php" ?>
 </body>
 </html>

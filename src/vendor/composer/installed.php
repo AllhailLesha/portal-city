@@ -19,6 +19,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'larapack/dd' => array(
+            'pretty_version' => '1.1',
+            'version' => '1.1.0.0',
+            'reference' => '561b5111a13d0094b59b5c81b1572489485fb948',
+            'type' => 'package',
+            'install_path' => __DIR__ . '/../larapack/dd',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/polyfill-mbstring' => array(
             'pretty_version' => 'v1.30.0',
             'version' => '1.30.0.0',
@@ -26,7 +35,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'symfony/var-dumper' => array(
             'pretty_version' => 'v7.1.3',
@@ -35,7 +44,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
     ),
 );
